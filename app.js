@@ -32,26 +32,26 @@
 //         })
 //     })
 // }
-const { tulispertanyaan,simpanContact } = require('./contact')
+// const { tulispertanyaan,simpanContact } = require('./contact')
 
-const main = async () => {
-    // const nama = await pertanyaan1();
-    // const number = await pertanyaan2();
-    const nama = await tulispertanyaan('What is Your Name :');
-    const number = await tulispertanyaan('What is Your Number Phone :');
-    // const data = {
-    //     nama: nama,
-    //     number: number
-    // };
-    // const fileBuffer = fs.readFileSync(dirFile, 'utf8');
-    // const datas = JSON.parse(fileBuffer);
-    // datas.push(data);
-    // fs.writeFileSync(dirFile, JSON.stringify(datas))
-    // console.log("Terima Kasih" + nama + " nomor hp anda adalah " + number);
-    // rl.close();
-    simpanContact(nama,number);
-}
-main();
+// const main = async () => {
+// const nama = await pertanyaan1();
+// const number = await pertanyaan2();
+// const nama = await tulispertanyaan('What is Your Name :');
+// const number = await tulispertanyaan('What is Your Number Phone :');
+// const data = {
+//     nama: nama,
+//     number: number
+// };
+// const fileBuffer = fs.readFileSync(dirFile, 'utf8');
+// const datas = JSON.parse(fileBuffer);
+// datas.push(data);
+// fs.writeFileSync(dirFile, JSON.stringify(datas))
+// console.log("Terima Kasih" + nama + " nomor hp anda adalah " + number);
+// rl.close();
+//     simpanContact(nama,number);
+// }
+// main();
 
 // rl.question('What is Your Name :', (nama) => {
 //     rl.question('What is your number phone :', (number) => {
@@ -67,3 +67,19 @@ main();
 //         rl.close();
 //     })
 // })
+
+//Mengambil argument dari command line
+// console.log(process.argv[2]);
+
+//Mengambil argument dari command line(yargs)
+const yargs = require('yargs')
+
+// console.log(yargs.argv._[1]);
+yargs.command(
+    'add',
+    'Menambahkan Contact',
+    () => { },
+    (argv) => {
+        console.log(argv.nama);
+    });
+yargs.parse();

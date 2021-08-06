@@ -1,0 +1,23 @@
+{
+  "name": "belajarnode2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajisetiaji101/belajarnode2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajisetiaji101/belajarnode2/issues"
+  },
+  "homepage": "https://github.com/ajisetiaji101/belajarnode2#readme",
+  "dependencies": {
+    "yargs": "^17.1.0"
+  }
+}
