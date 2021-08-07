@@ -73,13 +73,75 @@
 
 //Mengambil argument dari command line(yargs)
 const yargs = require('yargs')
+const contacts = require('./contact')
 
 // console.log(yargs.argv._[1]);
-yargs.command(
-    'add',
-    'Menambahkan Contact',
-    () => { },
-    (argv) => {
-        console.log(argv.nama);
-    });
+yargs.command({
+    command: 'add',
+    describe:'Menambahkan contact baru',
+    builder:{
+        nama:{
+            describe:'Nama Lengkap',
+            demandOption:true,
+            type:'string'
+        },
+        number:{
+            describe:'Nomor Handphone',
+            demandOption: true,
+            type:'string'
+        }
+    },
+    handler(argv){
+        // const contact = {
+        //     nama : argv.nama,
+        //     number : argv.number 
+        // };
+        // console.log(contact);
+        contacts.simpanContact(argv.nama,argv.number);
+    }
+})
+yargs.command({
+    command: 'list',
+    describe:'Melihat daftar nama contact',
+    handler(){
+        contacts.lihatContact();
+    }
+})
+
+// detail isi contact berdasarkan nama
+yargs.command({
+    command: 'detail',
+    describe:'Melihat isi nama contact',
+    builder:{
+        nama:{
+            describe:'Nama Lengkap',
+            demandOption:true,
+            type:'string'
+        }
+    },
+    handler(argv){
+        contacts.detailContact(argv.nama);
+    }
+});
+
+
+yargs.command({
+    command: 'hapus',
+    describe:'Menghapus contact',
+    builder:{
+        nama:{
+            describe:'Nama Lengkap',
+            demandOption:true,
+            type:'string'
+        }
+    },
+    handler(argv){
+        contacts.hapusContact(argv.nama);
+    }
+}).demandCommand();
+
+//menampilkan semua nama contact
+
+
+
 yargs.parse();

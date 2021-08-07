@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ajisetiaji101/belajarnode2#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
+    "validator": "^13.6.0",
     "yargs": "^17.1.0"
   }
 }
